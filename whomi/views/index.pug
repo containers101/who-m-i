@@ -1,0 +1,16 @@
+html
+    head
+        title Available Services
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'
+        integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u' crossorigin='anonymous')
+    body
+        if services.length > 0
+            h1 Here are all the available services
+            div(class='panel-grep')
+                each val in services
+                    div(class='panel panel-primary')
+                        div(class='panel-heading')= val.name
+                        div(class='panel-body')
+                          a(href= val.url)= val.url
+        else
+            h1 There are no available services :(
