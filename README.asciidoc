@@ -1,0 +1,31 @@
+= Who-M-I
+
+Use this repository to familiarize yourself with Codefresh's https://docs.codefresh.io/docs/composition-service-discovery[Composition Service Discovery].
+
+Codefresh enables you to launch multiple instances of the same composition utilizing Docker.
+This is possible, in part, because Docker can map ports from a container to a random port on a host.
+Codefresh's Composition Service Discovery enables you to reference these different services from within
+your containers even though they're accessible via random endpoints.
+
+The service discovery is achieved by injecting environment variables to every service of the composition.
+Environment variables are named after the service they refer too and contain the URL to that service.
+
+This repository provides you with a web application that demonstrates this capability by listing the different URLs provided by Codefresh.
+
+== How To Use This Repository
+
+=== Add The Who-M-I Service To Codefresh
+
+Once you've forked this repository, https://docs.codefresh.io/docs/build-your-image[add it as a service] to your Codefresh account.
+
+Make sure you properly name the resulting image, for example `myaccount/whomi`, and then build the image.
+
+=== Add The Who-M-I Composition To Codefresh
+
+Now that your image is built, https://docs.codefresh.io/docs/create-composition[add a composition] that starts the `whomi` service together with a few others services.
+
+This repository contains an example composition (`docker-compose.yml`) that you can add; just make sure to fill in the correct image name at line `14` of the composition!
+
+=== Launching The Who-M-I Composition
+
+So your composition is configured, now https://docs.codefresh.io/docs/test-your-feature[you can launch it] and access the web application.
