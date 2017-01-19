@@ -6,11 +6,18 @@ html
     body
         if services.length > 0
             h1 Here are all the available services
+            p Each item in this list represents an exposed port of a service in your composition.
+            p Although the service ports were exposed with random ports, Codefresh has made them available via a predictable URL pattern.
+            p To learn more about the features please see the <a href='https://docs.codefresh.io/docs/composition-service-discovery'>documentation</a> page.
+
             div(class='panel-grep')
                 each val in services
                     div(class='panel panel-primary')
                         div(class='panel-heading')= val.name
                         div(class='panel-body')
                           a(href= val.url)= val.url
+
+            div(class='alert alert-success')
+                <b>Please Note:</b> This feature is available for users with a Pro subscription. Already a Pro subscriber? Contact us to opt in to this feature.
         else
             h1 There are no available services :(
